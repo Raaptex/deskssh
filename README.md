@@ -3,7 +3,7 @@ Use SSH Server with Desktop app
 
 ## Installation
 
-> **IMPORTANT !** DDeskSSH uses google chrome, so it must be installed
+> **IMPORTANT !** DeskSSH uses google chrome, so it must be installed
 _Linux :_
 
 Install python

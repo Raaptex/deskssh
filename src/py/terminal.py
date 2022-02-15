@@ -2,10 +2,14 @@ import eel
 
 class Terminal:
 
-    def __init__(self) -> None:
-        
-        self.linein = None
+    def __init__(self, Core) -> None:
 
-    def writeIn(self, string):
+        self.Core = Core
 
-        self.linein += string
+    def exec(self, cmd):
+
+        result = self.Core.Session.exec(cmd)
+
+        return {
+            "output": result.output.decode("utf-8") 
+        }

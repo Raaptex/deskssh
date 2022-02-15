@@ -16,7 +16,13 @@
                 <h4>Terminal</h4>
                 <button class="minimize_window">Hide</button>
             </div>
-            <p id="terminal_line">deskssh:~$ </p>
+
+            <div id="terminal_console">
+                <div id="terminal_in"></div>
+
+                <p id="terminal_line">deskssh:~$ </p>
+            </div>
+            
         </div> 
 
         <div id="window_2" class="window connect">
@@ -33,7 +39,9 @@
                 <h3>User :</h3p>
                 <input type="text" id="connect_user">
                 <h3>Password :</h3>
-                <input type="text" id="connect_passwd">
+                <input type="password" id="connect_password">
+                <br>
+                <button id="connect_submit" onclick="session_connect()">Connect</button>
             </div>
 
         </div> 
@@ -43,11 +51,12 @@
     <div id="task_bar">
 
         <div id="task_1" class="task terminal_task">
-            <h4 class="terminal_task_name">T</h4>
+            <h4 class="terminal_task_name">Term</h4>
         </div>
 
     </div>
 
-    <script src="app.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

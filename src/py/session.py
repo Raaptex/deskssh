@@ -1,4 +1,4 @@
-import paramiko
+import spur
 
 class Session:
 
@@ -8,10 +8,8 @@ class Session:
         self.port = None 
         self.user = None
 
-        self.ssh = paramiko.SSHClient()
-        self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        
-        print("SESSION -> New session created")
+        self.shell = None
+
         print("MODULE -> Session loaded")
 
     def connect(self, host, port, user, pwd):
@@ -20,11 +18,20 @@ class Session:
         self.port = port
         self.user = user
 
-        self.ssh.connect(hostname=host, port=22, username=user, password=pwd)
+        try:
+            self.shell = spur.SshShell(hostname=host, port=port, username=user, password=pwd, missing_host_key=spur.ssh.MissingHostKey.accept, connect_timeout=5)
 
-        print("SESSION -> Session connected !")
+            self.shell.run(["ls"])
+
+            print("SESSION -> Session connected !")
+
+            return True
+        except:
+            print("SESSION -> Connection failed...")
+            return False
 
     def exec(self, cmd):
 
-        return self.ssh.exec_command(cmd)
+        print("SESSION -> Run : " + cmd)
 
+        return self.shell.run(cmd.split(" "), allow_error=True)

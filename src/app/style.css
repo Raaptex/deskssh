@@ -11,7 +11,7 @@ html {
     margin: 0px;
     padding: 0px;
 
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(216, 216, 216);
 
 }
 
@@ -95,19 +95,6 @@ h4 {
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.5);
 }
 
-.red {
-    background-color: red;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.size {
-    width: 5em; 
-    background-color: rgb(134, 134, 134);
-}
-
 .task {
     width: 50px;
     height: 50px;
@@ -152,14 +139,22 @@ h4 {
 
 .terminal {
     background-color: rgb(31, 31, 31);
+    display: none;
+}
+
+#terminal_console {
+    overflow-y: scroll;
+
+    width: 100%;
+    height: calc(100% - 1.5em - 1px);
 }
 
 .terminal_task_name {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 #connect_port {
-    width: 1.5em;
+    width: 2.5em;
 }
 
 .connect_title_bar {
@@ -180,7 +175,13 @@ h4 {
     z-index: 100;
 }
 
-#connect_elements h3, input {
+#connect_elements h3, input, button {
     display: inline-block;
     color: #000000;
+}
+
+#connect_elements input, button {
+    border-radius: 5px;
+    background-color: rgb(139, 139, 139);
+    border: None;
 }
